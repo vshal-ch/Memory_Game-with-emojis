@@ -33,26 +33,42 @@ body {
     
 }
 
+.card-container{
+  width: 100%;
+  height: 100%;
+}
+
 .card{
-    background-color: #1e1e1e;
-    transition:all 0.15s linear;
-    cursor: pointer;
-    position: relative;
+  width:100%;
+  height:100%;
+  transition: transform 0.5s ease-in-out;
+  border-radius: 5px;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
 }
 
-.card:focus,.card:hover{
-    background-color: #3f3f3f;
+.card>div{
+  height:100%;
+  width: 100%;
+  border-radius: 5px;
+  position: absolute;
+  backface-visibility: hidden;
 }
 
-.frontpart{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border:1px solid white;
-    background-color: #1e1e1e;
+.card .frontpart{
+  background:url('./front.svg') no-repeat center,linear-gradient(0deg,#1e1e1e,#1e1e1e);
+}
+
+.card .backpart{
+  background:linear-gradient(0deg,#1e1e1e,#1e1e1e);
+  transform: rotateY(180deg);
 }
 
 
+.card.active{
+  transform: rotateY(180deg);
+}
 
 @media (orientation: portrait){
     .container{
